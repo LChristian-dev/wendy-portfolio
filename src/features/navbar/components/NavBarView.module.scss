@@ -1,37 +1,71 @@
-// @use "../../../styles/abstracts/variables" as *;
-
 @use "../../../styles/abstracts/" as *;
-@use "../../../styles/base/animations" as *;
 
 .navBar {
-  width: 70vw;
+  width: min(112rem, calc(100% - 4.8rem));
   margin: 0 auto;
-  height: 4.2rem;
+  padding: 3.2rem 0 1.6rem;
   display: flex;
   align-items: center;
-  position: relative;
   justify-content: space-between;
-  // background-color: red;
-  z-index: 100;
+  gap: 2.4rem;
+  position: relative;
+  z-index: 4;
 
-  h2 {
-    color: $color-black;
-    font-size: 2rem;
+  @include respond(phone) {
+    width: min(112rem, calc(100% - 3.2rem));
+    padding-top: 2.4rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  &_list {
+  &__brand {
+    color: $color-black;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+  }
+
+  &__list {
     display: flex;
     align-items: center;
-    gap: 20;
+    gap: 2.4rem;
 
-    a {
-      font-size: 1.4rem;
-      text-decoration: none;
-      color: $color-black;
-      transition: all 0.3s ease-in-out;
+    @include respond(phone) {
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+  }
 
-      &:hover {
-        font-weight: 700;
+  &__link {
+    color: $color-black;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    transition:
+      color 0.25s ease,
+      transform 0.25s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.6rem;
+      width: 100%;
+      height: 0.2rem;
+      background-color: $color-primary;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.25s ease;
+    }
+
+    &:hover {
+      color: $color-primary-dark;
+      transform: translateY(-0.1rem);
+
+      &::after {
+        transform: scaleX(1);
       }
     }
   }
