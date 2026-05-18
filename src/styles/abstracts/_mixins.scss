@@ -1,0 +1,46 @@
+@use "sass:map";
+// @use "../base/animation" as *;
+
+// Device View
+$breakpoints: (
+  phone: 37.5em,
+  tab-port: 56.25em,
+  tab-land: 75em,
+  big-desktop: 90em,
+  wide: 112.5em,
+);
+
+@mixin respond($bp) {
+  $size: map.get($breakpoints, $bp);
+
+  @if $bp == wide {
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $size) {
+      @content;
+    }
+  }
+}
+
+// Mixin reusable code
+@mixin flexStarterColumn {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+}
+
+@mixin animationMoveInDown {
+  // ALl Animation code
+  // animation-name: moveInDown;
+  // animation-duration: 3s;
+  // animation-timing-function: ease-in-out;
+  // animation-delay: 2s;
+  // animation-iteration-count: infinite;
+  // animation-direction: alternate;
+  // animation-fill-mode: both;
+
+  // One animation code
+  animation: moveInDown 4s ease-in-out 0s infinite alternate both;
+}

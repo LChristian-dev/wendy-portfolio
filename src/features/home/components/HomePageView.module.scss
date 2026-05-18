@@ -1,0 +1,34 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/base/animations" as *;
+
+.home {
+  height: calc(100vh - 4.2rem);
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  z-index: 5;
+  //   background-color: red;
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.bg {
+  width: 100vw;
+  //   position: fixed;
+  //   right: 0;
+  top: -50;
+  position: relative;
+  z-index: 1;
+
+  &__img {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+}

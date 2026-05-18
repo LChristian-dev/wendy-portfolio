@@ -1,0 +1,38 @@
+// @use "../../../styles/abstracts/variables" as *;
+
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/base/animations" as *;
+
+.navBar {
+  width: 70vw;
+  margin: 0 auto;
+  height: 4.2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-between;
+  // background-color: red;
+  z-index: 100;
+
+  h2 {
+    color: $color-black;
+    font-size: 2rem;
+  }
+
+  &_list {
+    display: flex;
+    align-items: center;
+    gap: 20;
+
+    a {
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: $color-black;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        font-weight: 700;
+      }
+    }
+  }
+}
