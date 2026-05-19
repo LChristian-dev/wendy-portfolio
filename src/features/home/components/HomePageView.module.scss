@@ -2,6 +2,7 @@
 
 .homePage {
   min-height: 100svh;
+  // height: 100vh;
   background-color: $color-white;
   position: relative;
   overflow: hidden;
@@ -15,8 +16,8 @@
 
   &__backdropImage {
     position: absolute;
-    top: -22rem;
-    right: -14rem;
+    top: 0rem;
+    right: 0rem;
     width: min(72rem, 58vw);
     height: auto;
 
@@ -36,7 +37,7 @@
 }
 
 .hero {
-  width: min(112rem, calc(100% - 4.8rem));
+  width: min(105rem, calc(100% - 4.8rem));
   margin: 0 auto;
   min-height: calc(100svh - 10.4rem);
   display: grid;
@@ -72,19 +73,16 @@
   &__title {
     color: $color-black;
     font-family:
-      "Iowan Old Style",
-      "Palatino Linotype",
-      "Book Antiqua",
-      Georgia,
-      serif;
-    font-size: clamp(4.8rem, 5vw, 7.6rem);
+      "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    // font-size: clamp(4.8rem, 5vw, 7.6rem);
+    font-size: 5.2rem;
     line-height: 0.96;
     letter-spacing: -0.05em;
   }
 
   &__description {
     color: $color-text-soft;
-    font-size: 2rem;
+    font-size: 1.6rem;
     line-height: 1.65;
     max-width: 44rem;
   }
@@ -98,14 +96,22 @@
 
   &__primaryAction,
   &__secondaryAction {
-    min-width: 13rem;
-    padding: 1.2rem 2.2rem;
+    min-width: 7rem;
+    min-height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
     border-radius: 0.8rem;
     border: 0.2rem solid transparent;
+    background: none;
     font-size: 1.6rem;
     font-weight: 600;
+    font-family: inherit;
+    line-height: 1.2;
     text-align: center;
     text-decoration: none;
+    cursor: pointer;
     transition:
       transform 0.25s ease,
       box-shadow 0.25s ease,
@@ -163,7 +169,9 @@
 }
 
 .socialFooter {
-  width: min(112rem, calc(100% - 4.8rem));
+  // width: min(112rem, calc(100% - 4.8rem));
+  // height: 10vh;
+  width: 100%;
   margin: 0 auto;
   padding: 1.2rem 0 3.2rem;
   display: flex;

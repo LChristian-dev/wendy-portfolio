@@ -1,0 +1,115 @@
+@use "../../../../styles/abstracts/" as *;
+
+.modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.modal_open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+}
+
+.modal__dialog {
+  position: relative;
+
+  display: flex;
+
+  width: fit-content;
+  height: fit-content;
+
+  overflow: hidden;
+
+  background: transparent;
+
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.modal__content {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+}
+
+.modal__content :global(.calendly-inline-widget) {
+  width: 1000px;
+  height: 700px;
+
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 4rem;
+  height: 4rem;
+
+  border: none;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+
+  span {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    background: rgba(0, 0, 0, 1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .modal__content :global(.calendly-inline-widget) {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .modal__dialog {
+    width: 100vw;
+    height: 100vh;
+  }
+}

@@ -207,9 +207,10 @@
   border-radius: 3rem;
   padding: 4.8rem;
   box-shadow: 0 2rem 4.8rem $color-shadow;
-  display: grid;
+  // display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(24rem, 30rem);
   gap: 3.2rem;
+  position: relative;
   overflow: hidden;
 
   @include respond(tab-port) {
@@ -283,23 +284,24 @@
     }
   }
 
-  &__shape {
-    position: absolute;
-    inset: -2rem -6rem auto auto;
-    width: 28rem;
-    opacity: 0.95;
+  // &__shape {
+  //   position: fixed;
+  //   inset: -2rem -6rem auto auto;
+  //   width: 28rem;
+  //   top: 0;
+  //   opacity: 0.95;
 
-    img {
-      width: 100%;
-      height: auto;
-    }
+  //   img {
+  //     width: 100%;
+  //     height: auto;
+  //   }
 
-    @include respond(tab-port) {
-      width: 22rem;
-      right: -5rem;
-      top: -3rem;
-    }
-  }
+  //   @include respond(tab-port) {
+  //     width: 22rem;
+  //     right: -5rem;
+  //     top: -3rem;
+  //   }
+  // }
 
   &__portrait {
     width: min(30rem, 100%);

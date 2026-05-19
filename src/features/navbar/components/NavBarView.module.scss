@@ -1,7 +1,7 @@
 @use "../../../styles/abstracts/" as *;
 
 .navBar {
-  width: min(112rem, calc(100% - 4.8rem));
+  width: min(105rem, calc(100% - 4.8rem));
   margin: 0 auto;
   padding: 3.2rem 0 1.6rem;
   display: flex;

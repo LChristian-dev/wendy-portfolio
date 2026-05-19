@@ -1,6 +1,7 @@
 import NavBarView from "../../navbar/components/NavBarView";
 import Image from "next/image";
 import styles from "./PortfolioPageView.module.scss";
+import ContactModalLauncher from "../../contact/components/ContactModal/ContactModalLauncher";
 
 const profileFacts = [
   { label: "Age", value: "31" },
@@ -234,7 +235,7 @@ export default function PortfolioPageView() {
               </a>
             </div>
 
-            <div className={styles.heroCard__visual}>
+            {/* <div className={styles.heroCard__visual}>
               <div className={styles.heroCard__shape} aria-hidden="true">
                 <Image
                   src="/images/yellow-bg.svg"
@@ -250,7 +251,7 @@ export default function PortfolioPageView() {
                 height={704}
                 className={styles.heroCard__portrait}
               />
-            </div>
+            </div> */}
           </section>
 
           <section className={styles.section}>
@@ -299,12 +300,15 @@ export default function PortfolioPageView() {
               Let&apos;s discuss how I can help your business save time,
               increase productivity, and grow with confidence.
             </p>
-            <a href="mailto:bwendyglen@gmail.com" className={styles.ctaSection__action}>
+            <a
+              href="mailto:bwendyglen@gmail.com"
+              className={styles.ctaSection__action}
+            >
               Ready to get started? Let&apos;s connect today.
             </a>
           </section>
 
-          <section className={styles.section} id="contact">
+          {/* <section className={styles.section} id="contact">
             <h2 className={styles.section__title}>Contact Information</h2>
             <div className={styles.contactGrid}>
               {contactDetails.map((group) => (
@@ -323,7 +327,7 @@ export default function PortfolioPageView() {
                 </article>
               ))}
             </div>
-          </section>
+          </section> */}
 
           <footer className={styles.footer}>
             <div className={styles.footer__links}>

@@ -2,6 +2,7 @@ import NavBarView from "../../navbar/components/NavBarView";
 import styles from "./HomePageView.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import ContactModalLauncher from "../../contact/components/ContactModal/ContactModalLauncher";
 
 const socialLinks = [
   {
@@ -28,8 +29,8 @@ export default function HomePageView() {
         <Image
           src="/images/yellow-bg.svg"
           alt=""
-          width={720}
-          height={629}
+          width={1000}
+          height={1000}
           className={styles.homePage__backdropImage}
           priority
         />
@@ -52,12 +53,7 @@ export default function HomePageView() {
             <Link href="/portfolio" className={styles.hero__primaryAction}>
               Portfolio
             </Link>
-            <a
-              href="mailto:bwendyglen@gmail.com"
-              className={styles.hero__secondaryAction}
-            >
-              Contact
-            </a>
+            <ContactModalLauncher className={styles.hero__secondaryAction} />
           </div>
         </div>
         <div className={styles.hero__visual}>
@@ -65,15 +61,15 @@ export default function HomePageView() {
             <Image
               src="/images/wendy-img.svg"
               alt="Wendy Glen portrait"
-              width={704}
-              height={704}
+              width={504}
+              height={504}
               className={styles.hero__portrait}
               priority
             />
           </div>
         </div>
       </section>
-      <footer className={styles.socialFooter}>
+      <div className={styles.socialFooter}>
         <div className={styles.socialFooter__links}>
           {socialLinks.map((link) => (
             <a
@@ -89,7 +85,7 @@ export default function HomePageView() {
           ))}
         </div>
         <p className={styles.socialFooter__name}>Wendy Glen</p>
-      </footer>
+      </div>
     </main>
   );
 }
