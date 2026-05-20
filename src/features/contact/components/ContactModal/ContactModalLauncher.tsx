@@ -27,7 +27,7 @@ export default function ContactModalLauncher({
         aria-haspopup="dialog"
         aria-expanded={isOpen}
       >
-        {children ?? "Contact"}
+        {children ?? "Schedule a Discovery Call"}
       </button>
       <ContactModal isOpen={isOpen} onClose={closeModal} />
     </>
