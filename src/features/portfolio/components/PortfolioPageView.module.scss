@@ -466,14 +466,22 @@
   }
 
   &__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 0.8rem;
     padding: 1.4rem 2.6rem;
+    border: none;
     border-radius: 0.9rem;
     background-color: $color-primary;
     color: $color-black;
     font-size: 1.5rem;
     font-weight: 700;
+    font-family: inherit;
+    line-height: 1.2;
+    text-align: center;
     text-decoration: none;
+    cursor: pointer;
     transition:
       transform 0.25s ease,
       background-color 0.25s ease,

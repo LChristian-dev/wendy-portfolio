@@ -6,12 +6,7 @@ import ContactModalLauncher from "../../contact/components/ContactModal/ContactM
 
 const socialLinks = [
   {
-    href: "https://www.instagram.com/yourusername",
-    icon: "/images/instagram.svg",
-    label: "Instagram",
-  },
-  {
-    href: "https://www.linkedin.com/in/yourusername",
+    href: "https://www.linkedin.com/in/wendy-glen-banzon-58089a23b/",
     icon: "/images/linkedin.svg",
     label: "LinkedIn",
   },

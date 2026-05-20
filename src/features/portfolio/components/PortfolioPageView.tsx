@@ -109,12 +109,7 @@ const contactDetails = [
 
 const socialLinks = [
   {
-    href: "https://www.instagram.com/yourusername",
-    icon: "/images/instagram.svg",
-    label: "Instagram",
-  },
-  {
-    href: "https://www.linkedin.com/in/yourusername",
+    href: "https://www.linkedin.com/in/wendy-glen-banzon-58089a23b",
     icon: "/images/linkedin.svg",
     label: "LinkedIn",
   },
@@ -300,12 +295,9 @@ export default function PortfolioPageView() {
               Let&apos;s discuss how I can help your business save time,
               increase productivity, and grow with confidence.
             </p>
-            <a
-              href="mailto:bwendyglen@gmail.com"
-              className={styles.ctaSection__action}
-            >
+            <ContactModalLauncher className={styles.ctaSection__action}>
               Ready to get started? Let&apos;s connect today.
-            </a>
+            </ContactModalLauncher>
           </section>
 
           {/* <section className={styles.section} id="contact">
