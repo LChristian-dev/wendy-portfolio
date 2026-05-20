@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 // import { AuthProvider } from "@/src/features/auth/providers/AuthProvider";
 import "./globals.scss";
 
@@ -15,7 +16,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        <link rel="preconnect" href="https://assets.calendly.com" />
+        <link
+          rel="stylesheet"
+          href="https://assets.calendly.com/assets/external/widget.css"
+        />
+      </head>
+      <body>
+        {children}
+        <Script
+          id="calendly-widget-script"
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }

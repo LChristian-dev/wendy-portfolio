@@ -1,10 +1,21 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
-import Script from "next/script";
 
 import styles from "./ContactModal.module.scss";
+
+type CalendlyWindow = Window & {
+  Calendly?: {
+    initInlineWidget: (options: {
+      parentElement: HTMLElement;
+      url: string;
+    }) => void;
+  };
+};
+
+const CALENDLY_URL =
+  "https://calendly.com/vaservicewendy/30min?primary_color=fdc435";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -12,16 +23,69 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const widgetContainerRef = useRef<HTMLDivElement>(null);
+  const hasInitializedWidgetRef = useRef(false);
 
   const titleId = useId();
   const descriptionId = useId();
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    if (!isOpen) {
+      return;
+    }
+
+    const widgetContainer = widgetContainerRef.current;
+
+    if (!widgetContainer) {
+      return;
+    }
+
+    const initializeWidget = () => {
+      if (widgetContainer.childElementCount > 0) {
+        hasInitializedWidgetRef.current = true;
+        return true;
+      }
+
+      if (hasInitializedWidgetRef.current) {
+        return true;
+      }
+
+      const calendly = (window as CalendlyWindow).Calendly;
+
+      if (!calendly?.initInlineWidget) {
+        return false;
+      }
+
+      calendly.initInlineWidget({
+        parentElement: widgetContainer,
+        url: CALENDLY_URL,
+      });
+      hasInitializedWidgetRef.current = true;
+
+      return true;
+    };
+
+    if (initializeWidget()) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      if (initializeWidget()) {
+        window.clearInterval(intervalId);
+      }
+    }, 50);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -48,11 +112,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   return createPortal(
     <>
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="lazyOnload"
-      />
-
       <div
         className={`${styles.modal} ${isOpen ? styles.modal_open : ""}`}
         aria-hidden={!isOpen}
@@ -80,8 +139,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
             <div className={styles.modal__content}>
               <div
+                ref={widgetContainerRef}
                 className="calendly-inline-widget"
-                data-url="https://calendly.com/vaservicewendy/30min?primary_color=fdc435"
+                data-url={CALENDLY_URL}
               />
             </div>
           </div>
