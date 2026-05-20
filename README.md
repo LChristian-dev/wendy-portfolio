@@ -1,36 +1,226 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wendy Glen Portfolio Website
 
-## Getting Started
+A modern and responsive portfolio website built with Next.js, React, TypeScript, and SCSS Modules.
 
-First, run the development server:
+This project showcases Wendy Glen’s virtual assistant services, portfolio information, and Calendly-powered contact experience through a clean, production-ready frontend architecture.
+
+---
+
+# Tech Stack
+
+- Next.js 15
+- React
+- TypeScript
+- SCSS Modules
+- Calendly Integration
+- Feature-Based Frontend Architecture
+
+---
+
+# Features
+
+## Home Page
+
+- Responsive hero section
+- Professional introduction
+- Service highlights
+- Calendly contact popup integration
+- Smooth modern UI styling
+
+## Portfolio Page
+
+- Portfolio showcase section
+- CTA section with Calendly popup
+- Social/contact links
+- Responsive layout
+
+## Contact System
+
+- Reusable modal architecture
+- Calendly embedded popup
+- Centralized modal management
+- Accessible modal interactions
+
+## Frontend Architecture
+
+- Feature-based folder structure
+- Reusable components
+- Scoped SCSS Modules
+- Centralized styling system
+- Clean separation of UI and feature logic
+
+---
+
+# Project Structure
+
+```bash
+src/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── portfolio/
+│       └── page.tsx
+│
+├── features/
+│   ├── contact/
+│   │   ├── components/
+│   │   │   └── ContactModal/
+│   │   └── hooks/
+│   │
+│   ├── home/
+│   │   └── components/
+│   │
+│   ├── navbar/
+│   │   └── components/
+│   │
+│   └── portfolio/
+│       └── components/
+│
+└── styles/
+    ├── abstracts/
+    ├── base/
+    └── main.scss
+```
+
+---
+
+# Getting Started
+
+## 1. Clone the Repository
+
+```bash
+git clone <your-repository-url>
+cd <your-project-folder>
+```
+
+---
+
+## 2. Install Dependencies
+
+Using npm:
+
+```bash
+npm install
+```
+
+Or using pnpm:
+
+```bash
+pnpm install
+```
+
+---
+
+## 3. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# Build for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run production server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run start
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is optimized for deployment on Vercel.
+
+## Recommended Deployment Stack
+
+| Layer             | Platform   |
+| ----------------- | ---------- |
+| Frontend Hosting  | Vercel     |
+| Repository        | GitHub     |
+| Domain Management | Cloudflare |
+
+---
+
+## Deploy to Vercel
+
+1. Push project to GitHub
+2. Go to Vercel
+3. Import repository
+4. Deploy
+
+---
+
+# Calendly Integration
+
+The project uses a reusable modal-based Calendly integration.
+
+Main files:
+
+```bash
+src/features/contact/components/ContactModal/
+```
+
+This allows multiple CTA buttons across the website to reuse the same Calendly popup system without duplicating logic.
+
+---
+
+# Styling System
+
+The project uses:
+
+- SCSS Modules for component-scoped styling
+- Shared SCSS architecture under:
+
+```bash
+src/styles/
+```
+
+Includes:
+
+- Variables
+- Mixins
+- Typography
+- Animations
+- Base styles
+- Reset styles
+
+---
+
+# Future Improvements
+
+Potential future enhancements:
+
+- Dark mode support
+- Blog integration
+- CMS integration
+- Contact form backend
+- SEO optimization
+- Performance optimization
+- Animation enhancements
+- Multi-language support
+
+---
+
+# Author
+
+Wendy Glen
+
+Professional Virtual Assistant
+
+---
+
+# License
+
+This project is for personal and professional portfolio use.
